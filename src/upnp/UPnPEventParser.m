@@ -102,9 +102,10 @@
     }else{
         //NSLog(@"LastChange - element:%@, value:%@", currentElementName, elementValue );
         //Parse LastChange
-        NSData *lastChange = [elementValue dataUsingEncoding:NSUTF8StringEncoding];
+    //    NSData *lastChange = [elementValue dataUsingEncoding:NSUTF8StringEncoding];
 
-        int ret = [lastChangeParser parseFromData:lastChange];
+		NSLog (@"LAST CHANGE:   %@", elementValue);
+		int ret = 0; // TODO: This creates a reentrant call into NSXMLParser [lastChangeParser parseFromData:lastChange];
         if(ret != 0){
             NSLog(@"Something went wrong during LastChange parsing");
         }
